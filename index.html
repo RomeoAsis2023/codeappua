@@ -824,14 +824,31 @@
 											<img width="40" height="40" src="img/demos/one-page-agency/icons/phone.svg" alt="" data-icon data-plugin-options="{'onlySVG': true, 'extraClass': 'svg-fill-color-light'}" />
 											<a href="tel:1234657890" class="d-inline-block text-color-light font-weight-bold text-decoration-none text-4 opacity-hover-9 ms-2">(667) 401-2646‬</a>
 										</div>
-										<form id="contact-form">
-											<input type="text" id="name" placeholder="Your Name" required>
-											<input type="email" id="email" placeholder="Your Email" required>
-											<textarea id="message" placeholder="Your Message" required></textarea>
-											<button type="submit">Send</button>
+										<form id="contact-form" class="contact-form form-fields-size-md form-style-3 form-errors-light mb-2">									
+											<div class="row">
+												<div class="form-group col">
+													<input type="text" class="form-control" name="name" value="" placeholder="First Name" required>
+												</div>
+											</div>
+											<div class="row">
+												<div class="form-group col">
+													<input type="email" class="form-control" name="email" value="" placeholder="E-mail Address" required>
+												</div>
+											</div>
+											<div class="row">
+												<div class="form-group col">
+													<textarea class="form-control custom-textarea-style" rows="3" name="message" placeholder="Message" required></textarea>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col">
+													<button type="submit" class="btn btn-gradient custom-border-radius-1 font-weight-semibold box-shadow-4 text-3-5 btn-px-5 btn-py-3" data-loading-text="Loading...">
+														<span class="px-3">SUBMIT</span>
+													</button>
+												</div>
+											</div>
 										</form>
-
-										<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+											<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 										<script>
 											(function() {
 												emailjs.init("melonix2871@gmail.com"); // Replace with your EmailJS User ID
@@ -852,7 +869,6 @@
 												});
 											});
 										</script>
-
 									</div>
 								</div>
 							</div>
