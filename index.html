@@ -824,15 +824,15 @@
 											<img width="40" height="40" src="img/demos/one-page-agency/icons/phone.svg" alt="" data-icon data-plugin-options="{'onlySVG': true, 'extraClass': 'svg-fill-color-light'}" />
 											<a href="tel:1234657890" class="d-inline-block text-color-light font-weight-bold text-decoration-none text-4 opacity-hover-9 ms-2">(667) 401-2646‬</a>
 										</div>
-										<form id="contact-form" class="contact-form form-fields-size-md form-style-3 form-errors-light mb-2">									
+										<form id="contact-form" class="contact-form form-fields-size-md form-style-3 form-errors-light mb-2">
 											<div class="row">
 												<div class="form-group col">
-													<input type="text" class="form-control" name="name" value="" placeholder="First Name" required>
+													<input type="text" class="form-control" name="name" placeholder="First Name" required>
 												</div>
 											</div>
 											<div class="row">
 												<div class="form-group col">
-													<input type="email" class="form-control" name="email" value="" placeholder="E-mail Address" required>
+													<input type="email" class="form-control" name="email" placeholder="E-mail Address" required>
 												</div>
 											</div>
 											<div class="row">
@@ -848,27 +848,41 @@
 												</div>
 											</div>
 										</form>
-											<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+										<!-- Load EmailJS -->
+										<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
 										<script>
+											// ✅ Initialize EmailJS with your correct EmailJS User ID
 											(function() {
-												emailjs.init("melonix2871@gmail.com"); // Replace with your EmailJS User ID
+												emailjs.init("melonix2871@gmail.com"); // Replace with your actual EmailJS User ID
 											})();
 
+											// ✅ Get the form and add an event listener
 											document.getElementById("contact-form").addEventListener("submit", function(event) {
 												event.preventDefault();
 
+												// ✅ Get form values correctly
+												const name = document.querySelector("[name='name']").value;
+												const email = document.querySelector("[name='email']").value;
+												const message = document.querySelector("[name='message']").value;
+
+												// ✅ Send the email using EmailJS
 												emailjs.send("service_n3v53ra", "template_ilp7ulw", {
-													name: document.getElementById("name").value,
-													email: document.getElementById("email").value,
-													message: document.getElementById("message").value
+													from_name: name,  // `from_name` should match your EmailJS template field
+													email: email,     // `email` should match your EmailJS template field
+													message: message  // `message` should match your EmailJS template field
 												}).then(function(response) {
-													alert("Message sent successfully!");
+													alert("Message sent successfully! ✅");
+
+													// ✅ Redirect to Thank You Page
 													window.location.href = "https://codea.pp.ua/ty";
 												}, function(error) {
 													alert("Error: " + JSON.stringify(error));
 												});
 											});
 										</script>
+
 									</div>
 								</div>
 							</div>
