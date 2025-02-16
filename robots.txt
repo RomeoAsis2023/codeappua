@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://codea.pp.ua/sitemap.xml
